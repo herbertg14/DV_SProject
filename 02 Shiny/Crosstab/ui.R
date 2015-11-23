@@ -29,7 +29,7 @@ navbarPage(
      mainPanel(plotOutput("distPlot2")
      )
   ),
-  tabPanel(title = "Blending 2 Data Sources",
+  tabPanel(title = "ScatterPlot",
      sidebarPanel(
        actionButton(inputId = "clicks3",  label = "Click me")
      ),
