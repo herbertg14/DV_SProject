@@ -1,17 +1,17 @@
 {
-    "contents" : "select CAUSE_NAME, STATE, YEAR, DEATHS, AADR from COD\nwhere YEAR == 1999 , CAUSE_NAME == 'Diseases of Heart'and STATE != 'United States'\n\nselect ITEM, Y1999, STATE_NAME from NHCE\nwhere ITEM == 'Hospital Care (Millions of Dollars)' and STATE_NAME != 'United States' \n\nfrom COD c join NHCE n\non c.STATE = n.STATE_NAME\n\n\ndf3 <- eventReactive(input$clicks3, {data.frame(fromJSON(getURL(URLencode(gsub(\"\\n\", \" \", 'skipper.cs.utexas.edu:5001/rest/native/?query=\n        \"\"\"select CAUSE_NAME, STATE, YEAR, DEATHS, AADR from COD\n        where YEAR == 1999 , CAUSE_NAME == \\\\\\'Diseases of Heart\\\\\\'and STATE != \\\\\\'United States\\\\\\'\n        select ITEM, Y1999, STATE_NAME from NHCE\n        where ITEM == \\\\\\'Hospital Care (Millions of Dollars)\\\\\\' and STATE_NAME != \\\\\\'United States\\\\\\'\n        from COD c join NHCE n\n        on c.STATE = n.STATE_NAME;\"\"\"\n        ')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_riw223', PASS='orcl_riw223', \n        MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE)))\n})",
+    "contents" : "select CAUSE_NAME, STATE, YEAR, DEATHS, AADR from COD\nwhere YEAR == 1999 , CAUSE_NAME == 'Diseases of Heart'and STATE != 'United States'\n\nselect ITEM, Y1999, STATE_NAME from NHCE\nwhere ITEM == 'Hospital Care (Millions of Dollars)' and STATE_NAME != 'United States' \n\nfrom COD c join NHCE n\non c.STATE = n.STATE_NAME\n\n\ndf3 <- eventReactive(input$clicks3, {data.frame(fromJSON(getURL(URLencode(gsub(\"\\n\", \" \", 'skipper.cs.utexas.edu:5001/rest/native/?query=\n        \"\"\"select CAUSE_NAME, STATE, YEAR, DEATHS, AADR from COD\n        where YEAR == 1999 , CAUSE_NAME == \\\\\\'Diseases of Heart\\\\\\'and STATE != \\\\\\'United States\\\\\\'\n        select ITEM, Y1999, STATE_NAME from NHCE\n        where ITEM == \\\\\\'Hospital Care (Millions of Dollars)\\\\\\' and STATE_NAME != \\\\\\'United States\\\\\\'\n        from COD c join NHCE n\n        on c.STATE = n.STATE_NAME;\"\"\"\n        ')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_riw223', PASS='orcl_riw223', \n        MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE)))\n})\n\n\n\nCOD <- data.frame(fromJSON(getURL(URLencode('skipper.cs.utexas.edu:5001/rest/native/?query=\"select * from COD\"'),httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_riw223', PASS='orcl_riw223', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE), ))\n\nsummary (COD)\nhead(COD)",
     "created" : 1448249806030.000,
-    "dirty" : false,
+    "dirty" : true,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1959671343",
+    "hash" : "775144379",
     "id" : "24BA8A65",
     "lastKnownWriteTime" : 1448250118,
     "path" : "~/University of Texas/Data Visualization/DV_SProject/02 Shiny/Scatterplot.R",
     "project_path" : "02 Shiny/Scatterplot.R",
     "properties" : {
     },
-    "relative_order" : 1,
+    "relative_order" : 2,
     "source_on_save" : false,
     "type" : "r_source"
 }
