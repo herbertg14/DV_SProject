@@ -66,5 +66,22 @@ shinyServer(function(input, output) {
         plot1
       })
       
+      df3 <- eventReactive(input$clicks3, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query="select * from SCATTER"')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_riw223', PASS='orcl_riw223', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE)))
+      })
+      
+      output$distPlot3 <- renderPlot(height=1000, width=2000, {
+        plot3 <- ggplot() + 
+          coord_cartesian() + 
+          scale_x_continuous() +
+          scale_y_continuous() +
+          labs(title= 'Correlation between Spending on Hospital Care and Deaths caused by Diseases of the Heart', x= 'Deaths',y='Spending in 1999') +
+          layer(data=df3(), 
+                mapping=aes(x=DEATHS, y=SPENDING), 
+                stat="identity", 
+                stat_params=list(), 
+                geom="point"
+          ) 
+        plot3
+      })
       
 })
