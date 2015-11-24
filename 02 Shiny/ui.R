@@ -29,7 +29,7 @@ navbarPage(
      mainPanel(plotOutput("distPlot2")
      )
   ),
-  tabPanel(title = "ScatterPlot",
+  tabPanel(title = "Scatterplot",
      sidebarPanel(
        actionButton(inputId = "clicks3",  label = "Click me")
      ),
